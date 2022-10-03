@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require 'functions.php';
+require 'function.php';
 
 // jika tidak ada id di url
 if (!isset($_GET['id'])) {
@@ -13,7 +13,7 @@ if (!isset($_GET['id'])) {
 $id = $_GET['id'];
 
 // query buku berdasarkan id
-$buku = query("SELECT * FROM buku WHERE id_buku = $id");
+$data = query("SELECT * FROM buku WHERE id = $id");
 
 // cek apakah tombol ubah sudah ditekan
 if (isset($_POST['ubah'])) {
@@ -46,29 +46,29 @@ if (isset($_POST['ubah'])) {
     <ul>
       <li>
         <label>
-          Nama :
-          <input type="text" name="nama" autofocus required value="<?= $m['nama']; ?>">
+          id_buku :
+          <input type="text" name="id_buku" autofocus required value="<?= $data['id_buku']; ?>">
         </label>
       </li>
 
       <li>
         <label>
           Gambar :
-          <input type="text" name="gambar" required value="<?= $m['gambar']; ?>">
+          <input type="text" name="gambar" required value="<?= $data['gambar']; ?>">
         </label>
       </li>
 
       <li>
         <label>
           Penulis :
-          <input type="text" name="penulis" required value="<?= $m['penulis']; ?>">
+          <input type="text" name="penulis" required value="<?= $data['penulis']; ?>">
         </label>
       </li>
 
       <li>
         <label>
-          Harga :
-          <input type="text" name="harga" required value="<?= $m['harga']; ?>">
+          penulis :
+          <input type="text" name="penulis" required value="<?= $data['penulis']; ?>">
         </label>
       </li>
       <li>
@@ -77,5 +77,6 @@ if (isset($_POST['ubah'])) {
     </ul>
   </form>
 </body>
+
 
 </html
