@@ -9,7 +9,6 @@ if (!isset($_GET['id'])) {
   exit;
 }
 
-// mengambil id dari url
 $id = $_GET['id'];
 
 if (hapus($id) > 0) {
