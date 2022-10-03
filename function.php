@@ -66,7 +66,6 @@ function ubah($data)
               WHERE id = $id";
 
   mysqli_query($conn, $query) or die(mysqli_error($conn));
-
   return mysqli_affected_rows($conn);
 }
 ?>
