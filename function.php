@@ -62,9 +62,7 @@ function ubah($data)
   $query = "UPDATE buku SET
               nama = '$nama',
               gambar = '$gambar',
-              penulis = '$penulis',
-              harga = '$harga',
-              gambar = '$gambar'
+              penulis = '$penulis'
               WHERE id = $id";
 
   mysqli_query($conn, $query) or die(mysqli_error($conn));
