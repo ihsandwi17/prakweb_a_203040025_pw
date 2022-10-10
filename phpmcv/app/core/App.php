@@ -10,17 +10,13 @@ class App {
         $url = $this->parseURL();
 
         // controller
-        if ($url == NULL) {
-            $url = [$this->controller];
-          }
-
-          if (file_exists('../app/controllers/' . $url[0] . '.php')) {
+        if( file_exists('../app/controllers/' . $url[0] . '.php') ) {
             $this->controller = $url[0];
-            unset($url[0]);
-          }
+            unset($url[0]); 
+        }
 
         require_once '../app/controllers/' . $this->controller . '.php';
-        $this->controller =  $this->controller;
+        $this->controller = new $this->controller;
 
         // method
         if( isset($url[1]) ) {
@@ -35,10 +31,10 @@ class App {
             $this->params = array_values($url);
         }
 
-       // jalankan controller & method , serta kirimkan params jika ada
+        // jalankan controller & method, serta kirimkan params jika ada
         call_user_func_array([$this->controller, $this->method], $this->params);
-}
 
+    }
 
 
     public function parseURL()
